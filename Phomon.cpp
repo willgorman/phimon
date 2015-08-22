@@ -21,6 +21,6 @@ void loop() {
   if (game.play()) {
     return;
   } else {
-    Spark.publish("game_over", String(game.getRound()));
+    Spark.publish("phomon_score", String(game.getRound()));
   }
 }
