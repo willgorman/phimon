@@ -6,6 +6,7 @@ Game game = Game(b);
 
 void setup() {
   b.begin();
+  b.allLedsOff();
 }
 
 void loop() {
@@ -17,5 +18,9 @@ void loop() {
     return;
   }
 
-  game.play();
+  if (game.play()) {
+    return;
+  } else {
+    Spark.publish("game_over", String(game.getRound()));
+  }
 }
